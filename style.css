@@ -98,7 +98,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: red;
+    color: #CC5500;
 }
 
 .nav-links a::after {
@@ -108,7 +108,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: red;
+    background:#CC5500;
     transition: width 0.3s ease;
 }
 
@@ -178,14 +178,14 @@ body {
 }
 
 .highlight {
-    color: red;
+    color: #CC5500;
     font-weight: bold;
 }
 
 .btn {
     display: inline-block;
     padding: 1rem 2.5rem;
-    background: red;
+    background: #CC5500;
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -193,12 +193,12 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
-    border: 2px solid red;
+    border: 2px solid #CC5500;
 }
 
 .btn:hover {
     background: transparent;
-    color: red;
+    color: #CC5500;
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
 }
@@ -219,7 +219,7 @@ body {
     margin-bottom: 3rem;
     font-size: clamp(2rem, 4vw, 2.5rem);
     text-transform: uppercase;
-    color: red;
+    color: #CC5500;
 }
 
 /* About Section */
@@ -250,7 +250,7 @@ body {
 
 .stats span {
     font-size: 2.5rem;
-    color: red;
+    color: #CC5500;
     font-weight: bold;
 }
 
@@ -258,27 +258,105 @@ body {
     text-align: center;
     min-width: 100px;
 }
-
-/* Gallery Grid */
-.grid.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+/* Projects Grid (Single Card Layout) */
+.projects-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.grid.gallery img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
+.projects-grid .card {
+    background: #222;
+    padding: 1.5rem;
     border-radius: 12px;
+    text-align: center;
+    border: 1px solid #333;
     transition: all 0.3s ease;
-    cursor: pointer;
+
+    max-width: 500px; /* limit card width */
+    width: 100%;
 }
 
-.grid.gallery img:hover {
-    transform: scale(1.05);
+.projects-grid .card img {
+    width: 100%;
+    height: auto; /* keep proportions */
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    object-fit: contain; /* show full image without cropping */
+}
+
+.projects-grid .card:hover {
+    transform: translateY(-5px);
+    border-color: #CC5500;
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.1);
+}
+
+
+/* Gallery Section */
+#gallery {
+    padding: 5rem 2rem;
+    background: #000; /* keep section dark */
+}
+
+/* Masonry-style Gallery */
+.grid.gallery {
+    column-count: 3;
+    column-gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Wrap each image in a card-like container */
+.grid.gallery .gallery-item {
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 1.5rem;
+    background: #222;            /* same as project card */
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect (like project cards) */
+.grid.gallery .gallery-item:hover {
+    transform: translateY(-5px);
+    border-color: #CC5500;
     box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
 }
+
+/* The images inside */
+.grid.gallery .gallery-item img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Random sizing */
+.grid.gallery .gallery-item:nth-child(3n) img {
+    height: 280px;
+}
+.grid.gallery .gallery-item:nth-child(4n) img {
+    height: 350px;
+}
+.grid.gallery .gallery-item:nth-child(5n) img {
+    height: 420px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .grid.gallery {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid.gallery {
+        column-count: 1;
+    }
+}
+
 
 /* Cards */
 .card {
@@ -292,7 +370,7 @@ body {
 
 .card:hover {
     transform: translateY(-5px);
-    border-color: red;
+    border-color: #CC5500;
     box-shadow: 0 10px 30px rgba(255, 0, 0, 0.1);
 }
 
@@ -327,13 +405,13 @@ form textarea {
 form input:focus,
 form textarea:focus {
     outline: none;
-    border-color: red;
+    border-color: #CC5500;
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
 }
 
 form button {
     padding: 1rem 2rem;
-    background: red;
+    background: #CC5500;
     color: white;
     border: none;
     border-radius: 8px;
@@ -346,7 +424,7 @@ form button {
 }
 
 form button:hover {
-    background: #cc0000;
+    background: #CC5500;
     transform: translateY(-2px);
 }
 
@@ -443,6 +521,6 @@ html {
 
 /* Selection color */
 ::selection {
-    background: red;
+    background:#CC5500;
     color: white;
 }
