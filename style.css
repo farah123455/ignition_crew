@@ -228,6 +228,10 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: center;
+    
+}
+.mission-title {
+  color: #CC5500;
 }
 
 .about-grid img {
