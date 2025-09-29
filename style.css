@@ -846,3 +846,133 @@ html {
         font-size: 1.5rem;
     }
 }
+
+/* Leadership Team Styles */
+/* Leadership Team Styles */
+.team-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.team-subtitle {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-top: 1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.leader-card {
+  position: relative;
+  height: 350px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.leader-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(204, 85, 0, 0.3);
+}
+
+.leader-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #CC5500;
+  z-index: 1;
+}
+
+.leader-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  transition: transform 0.3s ease;
+  /* This ensures images don't turn orange */
+  mix-blend-mode: normal;
+}
+
+.leader-card:hover .leader-photo {
+  transform: scale(1.05);
+}
+
+.leader-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: white;
+  width: 100%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+}
+
+.leader-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.leader-role {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .leadership-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .leader-card {
+    height: 300px;
+  }
+  
+  .leader-content h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .leadership-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .leader-card {
+    height: 250px;
+  }
+  
+  .team-subtitle {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+}
