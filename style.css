@@ -1301,9 +1301,9 @@ html {
 /* Container: Sets up the responsive grid */
 
 /* Carousel Setup */
-.carousel-container { position: relative; width: 100%; max-width: 800px; margin: auto; overflow: hidden;  height: 500px;  /* ADD THIS */ }
+.carousel-container { position: relative; width: 100%; max-width: 800px; margin: auto; overflow: hidden;  height: auto;  /* ADD THIS */ }
 .carousel-track { display: flex; transition: transform 0.5s ease-in-out; }
-.slide { width: 100%; flex-shrink: 0; cursor: pointer; height: 100%;  /* ADD THIS */  object-fit: cover;  /* ADD THIS */ }
+.slide { width: 100%; flex-shrink: 0; cursor: pointer; height: auto;  /* ADD THIS */  object-fit: cover;  /* ADD THIS */ }
 
 /* Navigation Buttons */
 .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; }
