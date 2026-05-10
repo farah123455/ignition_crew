@@ -1,18 +1,95 @@
+// window.addEventListener("load", () => {
+//   const intro = document.getElementById("intro");
+
+//   // After 3s, fade out intro
+//   setTimeout(() => {
+//     intro.style.opacity = "0";
+
+//     // After fade-out completes, remove it from DOM
+//     setTimeout(() => {
+//       intro.style.display = "none";
+//     }, 1000); // matches CSS transition
+//   }, 3000); // time to show logo
+// });
+
+
+// Gallery functionality - SIMPLIFIED VERSION
+
+// window.addEventListener("load", () => {
+//   const intro = document.getElementById("intro");
+//   const mainContent = document.getElementById("main-content");
+
+//   setTimeout(() => {
+//     intro.style.opacity = "0";
+
+//     setTimeout(() => {
+//       intro.style.display = "none";
+//       mainContent.style.display = "block"; // Show the main content
+//     }, 1000);
+//   }, 3000);
+// }); 
+
+// ✅ Run immediately BEFORE anything else
+/*if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);*/
+
+
 window.addEventListener("load", () => {
   const intro = document.getElementById("intro");
+  const mainContent = document.getElementById("main-content");
 
-  // After 3s, fade out intro
   setTimeout(() => {
     intro.style.opacity = "0";
 
-    // After fade-out completes, remove it from DOM
     setTimeout(() => {
       intro.style.display = "none";
-    }, 1000); // matches CSS transition
-  }, 3000); // time to show logo
+      mainContent.classList.remove("hidden");
+      mainContent.style.visibility = "visible";
+      mainContent.style.opacity = "1";
+    }, 0);
+  }, 1000);
 });
+/*
 
-// Gallery functionality - SIMPLIFIED VERSION
+// ✅ Handle intro cleanly (NO extra scroll forcing later)
+window.addEventListener("load", () => {
+  const intro = document.getElementById("intro");
+  const mainContent = document.getElementById("main-content");
+
+  setTimeout(() => {
+    intro.style.opacity = "0";
+
+    setTimeout(() => {
+      intro.style.display = "none";
+
+      // Reveal content WITHOUT layout jump
+      mainContent.classList.remove("hidden");
+      mainContent.style.display = "block";
+
+    }, 1000);
+  }, 3000);
+});*/
+
+
+
+/*
+window.addEventListener("load", () => {
+  const intro = document.getElementById("intro");
+  const mainContent = document.getElementById("main-content");
+
+  setTimeout(() => {
+    intro.style.opacity = "0";
+
+    setTimeout(() => {
+      intro.style.display = "none";
+      mainContent.classList.remove("hidden");
+      mainContent.style.display = "block";
+    }, 1000);
+  }, 3000);
+});
+*/
 class Gallery {
     constructor() {
         this.images = [
@@ -33,7 +110,7 @@ class Gallery {
         console.log('Gallery loading with images:', this.images);
         this.createGallery();
         this.setupEventListeners();
-        this.showSlide(0);
+        this.showSlide(0, true);
     }
     
     createGallery() {
@@ -90,7 +167,7 @@ document.querySelector('.next-thumb')?.addEventListener('click', () => {
         document.addEventListener('keydown', (e) => this.handleKeyboard(e));
     }
     
-    showSlide(index) {
+    /*showSlide(index) {
         this.currentIndex = index;
         
         const slides = document.querySelectorAll('.gallery-slide');
@@ -111,8 +188,35 @@ document.querySelector('.next-thumb')?.addEventListener('click', () => {
                 inline: 'center'
             });
         }
-    }
+    }*/
     
+
+showSlide(index, isInitialLoad = false) {
+    this.currentIndex = index;
+    
+    const slides = document.querySelectorAll('.gallery-slide');
+    const thumbs = document.querySelectorAll('.thumbnail');
+    
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+    });
+    
+    thumbs.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
+    });
+    
+    // Only scroll into view if it's NOT the initial load
+    if (!isInitialLoad && thumbs[index]) {
+        thumbs[index].scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'center'
+        });
+    }
+}
+
+
+
     nextSlide() {
         this.currentIndex = (this.currentIndex + 1) % this.images.length;
         this.showSlide(this.currentIndex);
@@ -180,4 +284,85 @@ document.querySelector('.next-thumb')?.addEventListener('click', () => {
 // Initialize gallery when page loads
 document.addEventListener('DOMContentLoaded', () => {
     new Gallery();
+
+    document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  // Close menu when a link is clicked
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
 });
+
+  // ===== HERO AUTO SLIDER =====
+    let heroIndex = 0;
+    const heroSlides = document.querySelectorAll(".hero-slide");
+
+    function showHeroSlide(index) {
+        heroSlides.forEach((slide, i) => {
+            slide.classList.remove("active");
+            if (i === index) {
+                slide.classList.add("active");
+            }
+        });
+    }
+
+    // Auto change every 4 seconds
+    setInterval(() => {
+        heroIndex = (heroIndex + 1) % heroSlides.length;
+        showHeroSlide(heroIndex);
+    }, 4000);
+
+
+});
+// ===== GALLERY SLIDER LOGIC =====
+// Only runs if the gallery track exists on the page
+const galleryTrack = document.getElementById('track');
+const gallerySlides = document.querySelectorAll('.slide'); 
+let galleryIndex = 0;
+
+function moveSlide(direction) {
+    if (!galleryTrack) return; // Safety check
+
+    galleryIndex += direction;
+    
+    // Boundary check (Loop back)
+    if (galleryIndex < 0) galleryIndex = gallerySlides.length - 1;
+    if (galleryIndex >= gallerySlides.length) galleryIndex = 0;
+    
+    // Slide calculation
+    galleryTrack.style.transform = `translateX(-${galleryIndex * 100}%)`;
+}
+
+// ===== LIGHTBOX LOGIC =====
+function openLightbox(src) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    
+    if (lightbox && lightboxImg) {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = src;
+        document.body.style.overflow = 'hidden'; // Stop background scrolling
+    }
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+}
+
+
+// Also ensure that when the main content is revealed, we stay at the top
+/*window.addEventListener("load", () => {
+    window.scrollTo(0, 0);
+});*/

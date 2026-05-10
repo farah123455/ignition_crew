@@ -11,7 +11,15 @@ body {
     scroll-behavior: smooth;
     line-height: 1.6;
 }
+/*
+.hidden {
+  display: none;
+}*/
 
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
 /* Intro/Loading Screen */
 .intro {
     position: fixed;
@@ -131,8 +139,99 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Hero Section */
+/* Hero Section with Slider */
+/* 
 .hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;              
+    align-items: center;        
+    justify-content: center;    
+    text-align: center;         
+}
+
+/* Slider Container 
+.hero-slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+} */
+
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Keeps it behind the text */
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+     height: 100dvh; /* dynamic viewport height - fixes mobile browser chrome */
+    display: flex; /* This is okay to keep for centering text */
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+/* Individual Slides */
+
+
+.hero-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* Active Slide */
+.hero-slide.active {
+    opacity: 1;
+}
+
+
+
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust the 0.5 for more/less darkness */
+    z-index: 1; /* Sits between the slider (0) and the text (2) */
+    pointer-events: none; /* Ensures the overlay doesn't block clicks */
+}
+
+
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 2rem;
+ 
+    margin: auto; /* ensures perfect centering */
+    transform: translateY(-20px); /* slight lift */
+}
+
+@media (max-width: 768px) {
+    .hero-slide {
+        object-position: center center; /* shows top of image on mobile */
+    }
+}
+
+/* Hero Section */
+/* .hero {
     height: 100vh;
     background: url('image.png') center/cover no-repeat;
     position: relative;
@@ -153,7 +252,7 @@ body {
     text-align: center;
     max-width: 800px;
     padding: 0 2rem;
-}
+} */
 
 .hero h1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
@@ -185,7 +284,7 @@ body {
 .btn {
     display: inline-block;
     padding: 1rem 2.5rem;
-    background: #CC5500;
+   /* background: #CC5500;*/
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -193,6 +292,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
+    margin-top: 34rem;
     border: 2px solid #CC5500;
 }
 
@@ -237,11 +337,14 @@ body {
 .about-grid img {
     width: 100%;
     border-radius: 12px;
-    transition: transform 0.3s ease;
+   transition: transform 0.3s ease, border 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .about-grid img:hover {
     transform: scale(1.02);
+    border-color: #CC5500;
+     box-shadow: 0 10px 25px rgba(255, 69, 0, 0.2);
 }
 
 .stats {
@@ -374,6 +477,10 @@ body {
 }
 
 /* Main Gallery Viewer */
+.gallery {
+  padding: 5rem 2rem;
+  background: #111;
+}
 .gallery-viewer {
     position: relative;
     height: 500px;
@@ -628,9 +735,21 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: flex;
+        /*display: flex;*/
+        display: none;
     }
 
+    .nav-links {
+        position: static;      /* Removes the full-screen overlay */
+        display: flex;         /* Forces horizontal layout */
+        flex-direction: row;   /* Ensures they stay side-by-side */
+        width: auto;           /* Removes full-width mobile sizing */
+        height: auto;          /* Removes full-height mobile sizing */
+        background: transparent; 
+        gap: 1rem;             /* Adjusts spacing between links */
+        padding: 0;
+    }
+/*
     .nav-links {
         position: fixed;
         top: 70px;
@@ -646,7 +765,7 @@ footer {
 
     .nav-links.active {
         left: 0;
-    }
+    }*/
 
     .about-grid {
         grid-template-columns: 1fr;
@@ -895,7 +1014,7 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #CC5500;
+  background-color: black;
   z-index: 1;
 }
 
@@ -975,4 +1094,179 @@ html {
     font-size: 1.1rem;
     padding: 0 1rem;
   }
+}
+
+/* Core Section Styles */
+.achievements-section {
+  padding: 80px 20px;
+ /* background: linear-gradient(145deg, #121212, #080808); /* Sophisticated dark gradient */
+   background: 
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+    url('gokartteam6.JPG') center/cover no-repeat;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif; /* A strong sans-serif for impact */
+  text-align: center;
+}
+
+
+.section-title {
+  /*font-size: 3rem;*/
+  margin-bottom: 60px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+
+/* Accent Line under Title */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #ff4500; /* Signature Ignition Orange */
+  margin: 10px auto 0;
+}
+
+/* Grid Layout */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Card Styling */
+.ach-card {
+  /*background: #1a1a1a;*/
+  border-radius: 12px;
+  overflow: hidden; /* Important for the hover effect */
+  border: 1px solid #333;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+   background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+    display: flex;
+  flex-direction: column;
+  height: 100%;
+   opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #ff4500;
+}
+
+/* Hover Effects */
+.ach-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(255, 69, 0, 0.2); /* Orange glow on hover */
+  border-color: #ff4500;
+}
+
+/* Image Container */
+.card-img-container {
+  width: 100%;
+  height: 250px; /* Adjust as needed */
+ /* height: auto; */
+  overflow: hidden;
+}
+
+.card-img-container img {
+  width: 100%;
+  height: auto;
+ /* height: auto;*/ 
+  object-fit: contain; /* Ensures image covers area without distortion */
+  /* object-fit: contain;*/
+  transition: transform 0.4s ease; /* Scale effect */
+}
+
+.ach-card:hover .card-img-container img {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Text Container */
+.card-text {
+  padding: 25px;
+    text-align: center;
+
+}
+
+.card-text h3 {
+  color: #ff4500; /* Orange title */
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-text p {
+  color: #ccc;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+/* Container: Sets up the responsive grid */
+
+/* Carousel Setup */
+.carousel-container { position: relative; width: 100%; max-width: 800px; margin: auto; overflow: hidden;  height: 500px;  /* ADD THIS */ }
+.carousel-track { display: flex; transition: transform 0.5s ease-in-out; }
+.slide { width: 100%; flex-shrink: 0; cursor: pointer; height: 100%;  /* ADD THIS */  object-fit: cover;  /* ADD THIS */ }
+
+/* Navigation Buttons */
+.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; }
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Lightbox/Zoom Style */
+.lightbox { 
+    display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; 
+    background: rgba(0,0,0,0.9); justify-content: center; align-items: center; 
+}
+.lightbox-content { max-width: 90%; max-height: 90%; border-radius: 8px; }
+.close-btn { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
+
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: #1a1a1a;
+  border-radius: 10px;
+  border: 1px solid #333;
+  transition: border-color 0.3s ease;
+}
+
+.contact-item:hover {
+  border-color: #CC5500;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.contact-item a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #CC5500;
 }

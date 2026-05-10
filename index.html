@@ -6,39 +6,50 @@
   <title>Ignition Crew</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="ignitioncrewlogo.jpg">
-  
+   <script>
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+</script>
 </head>
 <body>
+ 
  
   <!-- Intro Screen -->
   <div id="intro" class="intro">
     <div class="intro-content">
-      <img src="ignitioncrewlogo.jpg" alt="Ignition Crew Logo" class="logo-img">
+      <img src="ignitioncrewlogo.jpg" alt="Ignition Crew Logo" class="logo-img" >
     </div>
   </div>
   
   <div id="main-content" class="hidden">
     <nav class="navbar">
       <div class="nav-container">
-        <img src="ignitioncrewlogo.jpg" alt="Ignition Crew Logo" class="logo-img">
+        <a href="#home">
+  <img src="ignitioncrewlogo.jpg" alt="Ignition Crew Logo" class="logo-img">
+</a>
+       
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
+          <li><a href="#achievements">Achievements</a></li>
           <li><a href="#team">Team</a></li>
-          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#Gallery">Gallery</a></li>
+          <li><a href="#sponsors">Sponsors</a></li>
+          <li><a href="sponsors.html">For Sponsors</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <div class="menu-toggle">
+      <!-- <div class="menu-toggle">
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </div> -->
       </div>
     </nav>
 
     <!-- Hero -->
-    <section id="home" class="hero">
+    <!-- <section id="home" class="hero">
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <h1><span class="highlight">IGNITING</span> INNOVATION</h1>
@@ -46,26 +57,104 @@
         <p>Where engineering meets adrenaline. Building the future, one go-kart at a time.</p>
         <a href="#about" class="btn">Discover Our Story</a>
       </div>
-    </section>
+    </section> -->
+    <section id="home" class="hero">
+
+  <!-- Background Slider -->
+  <div class="hero-slider">
+    <img src="gokart team3.JPG" class="hero-slide active">
+    <img src="gokarta2.JPG" class="hero-slide">
+    <img src="gokartrace.JPG" class="hero-slide">
+    <img src="gokartteam.JPG" class="hero-slide">
+     <img src="gokartpic.JPG" class="hero-slide">
+     <img src="gokartteam4.JPG" class="hero-slide">
+     <img src="gokartrace4.JPG" class="hero-slide">
+  </div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <!-- <h1><span class="highlight">IGNITING</span> INNOVATION</h1>
+    <h2>ON <span class="highlight">WHEELS</span></h2>
+    <p>Where engineering meets adrenaline. Building the future, one go-kart at a time.</p> -->
+    <a href="#about" class="btn">Discover Our Story</a>
+  </div>
+</section>
+    
+
 
     <!-- About -->
     <section id="about" class="section dark">
       <h2>About <span class="highlight">Ignition Crew</span></h2>
       <div class="about-grid">
         <div>
-          <h3 class="mission-title">Our Mission</h3>
-          <p>At Ignition Crew, we embrace the spirit of competition and foster a supportive environment where everyone can grow. Our commitment </p>
-          <p>to excellence is unwaivering, ensuring that we not only meet but exceed expectations while racing towards our goals as a united team.</p>
-         
+          <h3 style="font-size: 32px" class="mission-title">Our Mission</h3>
+          <p style="font-size: 24px;">At Ignition Crew, we embrace the spirit of competition and foster a supportive environment where everyone can grow. Our commitment </br></p>
+          <p style="font-size: 24px;">to excellence is unwaivering, ensuring that we not only meet but exceed expectations while racing towards our goals as a united team.</p>
+        <p style="color:#CC5500; text-decoration: underline; font-family: sans-serif; font-size: 28px;">
+    Fueled By Speed, Driven By Passion
+  </p>
         </div>
         <div>
-          <img src="teampic.jpg" alt="Go-kart">
+          <img src="gokartteam6.JPG" alt="Go-kart">
         </div>
+      </div></section>
+      <section id="who" class="section dark">
+       <h2> <span class="highlight">Who we are</span> </h2>
+      <div class="about-grid">
+        <div>
+          <h3 style="font-size: 30px" class="mission-title">Goa's only Student Go-Kart Club</h3>
+          <p style="font-size: 24px;">Ignition Crew is the official student motorsport engineering team of Padre Conceição College of Engineering, Goa, where students design, manufacture, and compete with a high-performance racing go-kart while applying real-world engineering principles such as chassis design, vehicle dynamics, fabrication, and testing.<br>
+         Through national competitions like the Go-Kart Design Challenge (GKDC), the team represents the institute while gaining practical engineering experience and developing industry-ready skills.
+ </p>
+     
       </div>
+      <div>
+          <img src="gokart7.jpg" alt="Go-kart">
+        </div>
     </section>
+    <section id="achievements" class="achievements-section">
+  <h2 class="section-title">Our Achievements</h2>
+  
+  <div class="achievements-grid">
+    <div class="ach-card">
+      <div class="card-img-container">
+        <img src="gokart4.JPG" alt="PCCE Ignition Crew GKDC Kart">
+      </div>
+      <div class="card-text">
+        <div class="icon">🏆</div>
+        <h3>GKDC Finals</h3>
+        <p>Secured 25th position nationwide at the prestigious National Go Kart Design Challenge in Coimbatore, competing against 75 top engineering teams.</p>
+      </div>
+    </div>
 
-    <!-- Projects -->
-<section id="projects" class="section">
+    <div class="ach-card">
+      <div class="card-img-container">
+        <img src="media recognition.jpeg" alt="Team Ignition Crew Featured in News">
+      </div>
+      <div class="card-text">
+        <div class="icon">🏆</div>
+
+        <h3>Media Spotlight</h3>
+        <p>Featured in multiple Goan news channels for our innovative kart design and representation of the engineering institute on a national level.</p>
+      </div>
+    </div>
+
+    <div class="ach-card">
+      <div class="card-img-container">
+        <img src="bestcaptainawardedit.png" alt="PCCE Captain Award Presentation">
+      </div>
+      <div class="card-text">
+        <div class="icon">🏆</div>
+        <h3>Leadership Award</h3>
+        <p>The PCCE Captain was honored with the Best Captain's Award for excellence in leadership, strategic planning, and team management during the 13th KDC.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- projects -->
+<!-- <section id="projects" class="section">
   <h2>Our <span class="highlight">Projects</span></h2>
   <div class="projects-grid">
     <div class="project-container">
@@ -97,113 +186,118 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
     <!-- Team -->
 <!-- Team -->
 <section id="team" class="section dark">
   <div class="team-header">
     <h2>Our leadership team</h2>
-    <p class="team-subtitle">Redefining student engineering excellence as we compete in the 13th GKDC with innovation, precision, and relentless determination.</p>
+   
   </div>
   
   <div class="leadership-grid">
     <div class="leader-card">
       <div class="leader-bg"></div>
-      <img src="brandon-removebg-preview.png" alt="brandon" class="leader-photo">
+      <img src="WhatsApp_Image_2026-04-24_at_10.11.11_PM-removebg-preview (1).png" alt="Daniel" class="leader-photo" style="width: 70%; height: 90%; top: 60%; left: 50%; transform: translate(-50%, -50%);">
       <div class="leader-content">
-        <h3>Brandon Do Rosario</h3>
+        <h3>Daniel B Carvalho</h3>
         <p class="leader-role">TEAM LEADER </p>
       </div>
     </div>
     
     <div class="leader-card">
       <div class="leader-bg"></div>
-      <img src="shane-removebg-preview.png" alt="Shane" class="leader-photo">
+      <img src="WhatsApp_Image_ferdi-removebg-preview.png" alt="Ferdinan" class="leader-photo" style="width: 70%; height: 90%; top: 60%; left: 50%; transform: translate(-50%, -50%);">
       <div class="leader-content">
-        <h3>Shane Teo Vas</h3>
-        <p class="leader-role"> FINANCE HEAD </p>
+        <h3>Ferdinan Leitao</h3>
+        <p class="leader-role"> Team Manager </p>
       </div>
     </div>
     
     <div class="leader-card">
       <div class="leader-bg"></div>
-      <img src="shamant-removebg-preview.png" alt="shamant" class="leader-photo">
+      <img src="WhatsApp_Image_2026-04-24_at_10.11.30_PM-removebg-preview.png" alt="Jonathan" class="leader-photo" style="width: 100%; height: 100%; top: 50%; left: 50%; transform: translate(-50%, -50%);">
       <div class="leader-content">
-        <h3>Shamant Matha</h3>
+        <h3>Jonathan Pereira</h3>
         <p class="leader-role"> SOCIAL MEDIA HEAD </p>
       </div>
     </div>
     
     <div class="leader-card">
       <div class="leader-bg"></div>
-      <img src="samuel-removebg-preview.png" alt="samuel" class="leader-photo" style="width: 70%; height: 90%; top: 60%; left: 50%; transform: translate(-50%, -50%);">
+      <img src="WhatsApp_Image_2026-04-24_at_10.10.56_PM-removebg-preview copy.png" alt="Valerie" class="leader-photo" style="width: 100%; height: 100%; top: 40%; left: 50%; transform: translate(-50%, -50%);">
       <div class="leader-content">
-        <h3>Samuel Mathias Menezes</h3>
-        <p class="leader-role">REASEARCH & DESIGN HEAD</p>
+        <h3>Valerie Periera</h3>
+        <p class="leader-role">INNOVATION HEAD</p>
       </div>
     </div>
 
     <div class="leader-card">
       <div class="leader-bg"></div>
-      <img src="marisha-removebg-preview.png" alt="marisha" class="leader-photo">
+      <img src="WhatsApp_Image_2026-04-24_at_10.11.43_PM-removebg-preview.png" alt="kate" class="leader-photo"style="width: 70%; height: 90%; top: 60%; left: 50%; transform: translate(-50%, -50%);" >
       <div class="leader-content">
-        <h3>Marisha Almeida</h3>
-        <p class="leader-role">MARKETING HEAD</p>
+        <h3>Kate Da Silva</h3>
+        <p class="leader-role"> RESEARCH AND DESIGN HEAD</p>
       </div>
     </div>
     
     <div class="leader-card">
       <div class="leader-bg"></div>
-      <img src="arantes-removebg-preview.png" alt="arantes" class="leader-photo">
+      <img src="WhatsApp_Image_2026-04-24_at_10.11.51_PM-removebg-preview.png" alt="Sweden" class="leader-photo" style="width: 70%; height: 90%; top: 60%; left: 50%; transform: translate(-50%, -50%);">
       <div class="leader-content">
-        <h3>Arantes Caiado</h3>
-        <p class="leader-role">COMMUNITY LIAISON</p>
+        <h3>Sweden</h3>
+        <p class="leader-role">MANUFACTURING HEAD</p>
       </div>
     </div>
   </div>
   </div>
 </section>
 
- 
 
-
-    <!-- Gallery Section - CORRECTED -->
-    <!-- Gallery Section -->
-<section id="gallery" class="section">
-    <h2>Gallery</h2>
-    <div class="gallery-container">
-        <!-- Thumbnail Navigation -->
-        <div class="gallery-thumbnails">
-            <button class="thumb-nav prev-thumb">‹</button>
-            <div class="thumbnails-container">
-                <!-- Thumbnails will be generated by JavaScript -->
-            </div>
-            <button class="thumb-nav next-thumb">›</button>
-        </div>
-
-        <!-- Main Gallery Viewer -->
-        <div class="gallery-viewer">
-            <button class="gallery-nav prev">‹</button>
-            
-            <div class="gallery-slides">
-                <!-- Slides will be populated by JavaScript -->
-            </div>
-            
-            <button class="gallery-nav next">›</button>
-            
-            <!-- Lightbox Modal -->
-            <div class="lightbox">
-                <span class="close-lightbox">&times;</span>
-                <img class="lightbox-img" src="" alt="">
-                <button class="lightbox-nav lightbox-prev">‹</button>
-                <button class="lightbox-nav lightbox-next">›</button>
-            </div>
-        </div>
-    </div>
+  <section id="Gallery" class="gallery section">
+  <h2>Gallery</h2>
+  <div class="carousel-container">
+    <div class="carousel-track" id="track">
+      <img src="gokartrace.JPG" class="slide" onclick="openLightbox(this.src)">
+      <img src="gokarta2.JPG" class="slide" onclick="openLightbox(this.src)">
+      <img src="gokart4.JPG" class="slide" onclick="openLightbox(this.src)">
+      <img src="gokart5.JPG" class="slide" onclick="openLightbox(this.src)">
+      <img src="gokartaa.JPG" class="slide" onclick="openLightbox(this.src)">
+      <img src="gokartteamwork2.JPG" class="slide" onclick="openLightbox(this.src)">
+       <img src="gokartpic.JPG" class="slide" onclick="openLightbox(this.src)">
+      <img src="gokartteam4.JPG" class="slide" onclick="openLightbox(this.src)">
+      <img src="gokart team3.JPG" class="slide" onclick="openLightbox(this.src)">
+      </div>
+    <button class="nav-btn prev" onclick="moveSlide(-1)">❮</button>
+    <button class="nav-btn next" onclick="moveSlide(1)">❯</button>
+  </div>
 </section>
 
-    <!-- Contact -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <span class="close-btn">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+</div>
+
+
+
+  <!-- <section id="Gallery" class="gallery">
+  <div class="gallery-grid">
+    <img src="gokart team3.JPG" class="gallery-item">
+    <img src="gokart2.JPG" class="gallery-item">
+    <img src="gokartachievement.JPG" class="gallery-item">
+    <img src="gokartaa.JPG" class="gallery-item">
+    <img src="gokart7.JPG" class="gallery-item">
+    <img src="gokartteamwork2.JPG" class="gallery-item">
+    <img src="gokart3.JPG" class="gallery-item">
+  </div>
+</section> -->
+  <section id="sponsors" class="sponsors section">
+  <h2>Sponsors</h2>
+  <img src="Screenshot 2026-05-02 184325.png" alt="Our Sponsors" style="width: 100%; border-radius: 12px; margin-top: 2rem;">
+  </section>
+
+    <!-- Contact 
     <section id="contact" class="section dark">
       <h2>Get in <span class="highlight">Touch</span></h2>
       <div class="contact-grid">
@@ -213,27 +307,67 @@
           <p>Phone: (555) 123-4567</p>
           <p>Location: Engineering Building, Room 205</p>
         </div>
-        <form>
+         Contact -->
+<section id="contact" class="section dark">
+  <h2>Get in <span class="highlight">Touch</span></h2>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto;">
+
+    <div class="contact-item">
+      <span class="contact-icon">📧</span>
+      <div>
+        <p style="color: #ccc; font-size: 0.85rem;">Email</p>
+        <a href="mailto:ignitioncrewgoa@gmail.com">ignitioncrewgoa@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <span class="contact-icon">📞</span>
+      <div>
+        <p style="color: #ccc; font-size: 0.85rem;">Phone</p>
+        <a href="tel:+918806291230">+91 8806291230</a>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <span class="contact-icon">📍</span>
+      <div>
+        <p style="color: #ccc; font-size: 0.85rem;">Location</p>
+        <a href="https://maps.google.com/?q=Padre+Conceicao+College+of+Engineering+Verna+Goa" target="_blank">
+          Padre Conceição College of Engineering, Verna, Goa
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <span class="contact-icon">📸</span>
+      <div>
+        <p style="color: #ccc; font-size: 0.85rem;">Instagram</p>
+        <a href="https://instagram.com/team.ignition.crew" target="_blank">@team.ignition.crew</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+        <!-- <form>
           <input type="text" placeholder="Your Name" required>
           <input type="email" placeholder="Your Email" required>
           <textarea placeholder="Message"></textarea>
           <button type="submit">Send Message</button>
-        </form>
+        </form> -->
       </div>
     </section>
 
     <!-- Footer -->
     <footer>
-      <p>© 2025 Ignition Crew. Built with passion and precision.</p>
+      <p>© 2026 Ignition Crew. Built with passion and precision.</p>
     </footer>
   </div>
   
   <script src="script.js"></script>
-  <script>
-  window.onload = function() {
-    window.scrollTo(0, 0);
-  };
-</script>
 
 </body>
 </html>
