@@ -46,7 +46,7 @@ body {
 @keyframes logo-grow {
     0% { 
         opacity: 0; 
-        transform: scale(0.5); 
+        transform: scale(1.7); 
     }
     50% { 
         opacity: 1; 
@@ -56,6 +56,59 @@ body {
         opacity: 1; 
         transform: scale(1); 
     }
+}
+
+
+/* Container should fill the desired area (e.g., the whole screen) */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Adjust this to 500px etc. if you don't want full screen */
+    overflow: hidden;
+}
+
+/* Individual slides */
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* THE KEY PROPERTIES */
+    object-fit: cover;    /* Fills the screen; may crop edges but keeps ratio */
+    object-position: center; /* Keeps the middle of the photo visible */
+    
+    opacity: 0; /* Assuming you're using JS to swap the 'active' class */
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* Only show the active slide */
+.hero-slide.active {
+    opacity: 1;
+}
+
+
+
+/* just added Hide the actual checkbox */
+.hidden-checkbox {
+  display: none;
+}
+
+/* Base menu style (hidden on mobile) */
+.menu {
+  display: none;
+  flex-direction: column;
+}
+
+/* THE MAGIC: When checkbox is checked, find sibling .menu and show it */
+.hidden-checkbox:checked ~ .menu {
+  display: flex;
+}
+
+/* just added Optional: Animate the hamburger lines when open */
+.hidden-checkbox:checked ~ .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
 /* Navigation */
@@ -130,6 +183,22 @@ body {
     flex-direction: column;
     cursor: pointer;
     gap: 4px;
+}
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    padding: 4px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    display: block;
+    transition: all 0.3s ease;
 }
 
 .menu-toggle span {
@@ -226,7 +295,7 @@ body {
 
 @media (max-width: 768px) {
     .hero-slide {
-        object-position: center center; /* shows top of image on mobile */
+        object-position: center top; /* shows top of image on mobile */
     }
 }
 
@@ -292,7 +361,8 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
-    margin-top: 34rem;
+    /*margin-top: 34rem;*/
+     margin-top: 0rem;
     border: 2px solid #CC5500;
 }
 
@@ -732,23 +802,23 @@ footer {
     margin-top: 3rem;
 }
 
-/* Responsive Design */
+/* Responsive Design 
 @media (max-width: 768px) {
     .menu-toggle {
-        /*display: flex;*/
+        /*display: flex;
         display: none;
     }
 
     .nav-links {
         position: static;      /* Removes the full-screen overlay */
-        display: flex;         /* Forces horizontal layout */
-        flex-direction: row;   /* Ensures they stay side-by-side */
-        width: auto;           /* Removes full-width mobile sizing */
-        height: auto;          /* Removes full-height mobile sizing */
+        /* display: flex;         /* Forces horizontal layout *
+        flex-direction: row;   /* Ensures they stay side-by-side *
+        width: auto;           /* Removes full-width mobile sizing *
+        height: auto;          /* Removes full-height mobile sizing *
         background: transparent; 
-        gap: 1rem;             /* Adjusts spacing between links */
+        gap: 1rem;             /* Adjusts spacing between links *
         padding: 0;
-    }
+    } */
 /*
     .nav-links {
         position: fixed;
@@ -765,7 +835,7 @@ footer {
 
     .nav-links.active {
         left: 0;
-    }*/
+    }*
 
     .about-grid {
         grid-template-columns: 1fr;
@@ -789,7 +859,7 @@ footer {
         font-size: 2rem;
     }
 
-    /* Gallery Mobile Responsive */
+    /* Gallery Mobile Responsive *
     .gallery-viewer {
         height: 300px;
     }
@@ -810,7 +880,8 @@ footer {
         height: 50px;
         font-size: 1.5rem;
     }
-}
+}*/
+
 
 @media (max-width: 480px) {
     .section {
@@ -1269,4 +1340,68 @@ html {
 
 .contact-item a:hover {
   color: #CC5500;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+  /* Show the hamburger icon on mobile */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Hide the old div-based toggle */
+  .menu-toggle {
+    display: none;
+  }
+
+  /* Stack the nav links in a fullscreen dropdown */
+  .nav-links {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.97);
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #222;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  /* When checkbox is checked → slide the menu open */
+  #menu-toggle:checked + .nav-container .nav-links  {
+    max-height: 600px;
+    padding: 1rem 0;
+  }
+
+  /* Hero image — show top of photo on mobile */
+  .hero-slide {
+    object-position: center top;
+  }
+
+  .about-grid      { grid-template-columns: 1fr; gap: 2rem; }
+  .contact-grid    { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-content    { padding: 0 1rem; }
+  .stats           { gap: 1rem; }
+  .stats span      { font-size: 2rem; }
+  .gallery-viewer  { height: 300px; }
+  .thumbnail       { width: 80px; height: 60px; }
+  .gallery-nav     { width: 40px; height: 40px; font-size: 1.2rem; }
+  .lightbox-nav    { width: 50px; height: 50px; font-size: 1.5rem; }
 }

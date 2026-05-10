@@ -24,8 +24,55 @@
   </div>
   
   <div id="main-content" class="hidden">
-    <nav class="navbar">
+
+
+    <!-- ============================================================
+  REPLACE your entire <nav class="navbar"> block with this.
+  The checkbox must be a DIRECT sibling of .nav-container
+  for the CSS ~ selector to work.
+  ============================================================ -->
+
+<nav class="navbar">
+  <!-- Checkbox toggle — must be BEFORE nav-container -->
+  <input type="checkbox" id="menu-toggle" class="hidden-checkbox">
+
+  <div class="nav-container">
+
+    <!-- Logo -->
+    <a href="#home">
+      <img src="ignitioncrewlogo.jpg" alt="Ignition Crew Logo" class="logo-img">
+    </a>
+
+    <!-- Hamburger label — clicking this toggles #menu-toggle -->
+    <label for="menu-toggle" class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <!-- Nav links -->
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#Gallery">Gallery</a></li>
+      <li><a href="#sponsors">Sponsors</a></li>
+      <li><a href="sponsors.html">For Sponsors</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </div>
+</nav>
+    <!-- <nav class="navbar">
       <div class="nav-container">
+          <input type="checkbox" id="menu-toggle" class="hidden-checkbox"><!-just added 
+
+          <label for="menu-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
         <a href="#home">
   <img src="ignitioncrewlogo.jpg" alt="Ignition Crew Logo" class="logo-img">
 </a>
@@ -40,13 +87,13 @@
           <li><a href="sponsors.html">For Sponsors</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-      <!-- <div class="menu-toggle">
+      <!- <div class="menu-toggle">
           <span></span>
           <span></span>
           <span></span>
-        </div> -->
+        </div> 
       </div>
-    </nav>
+    </nav>*/ -->
 
     <!-- Hero -->
     <!-- <section id="home" class="hero">
