@@ -294,17 +294,22 @@ body {
 }
 
 @media (max-width: 768px) {
-    .hero-slide {
-        object-position: center top; /* shows top of image on mobile */
-    }
-    .carousel-container {
-    height: auto;
-}
 
-.slide {
-    height: auto;
-    object-fit: cover;
-}
+     /* 1. Set the main container height */
+    .hero-slider, .carousel-container {
+        height: 50vh; /* Keeps it to half the screen height on mobile */
+    }
+
+    /* 2. Choose ONE image fitting style below */
+    .hero-slide, .slide {
+        width: 100%;
+        height: 100%;
+        background-color: #000; /* Fills empty space with black */
+        
+        /* OPTION A: Best for seeing the whole team/car without cropping */
+        object-fit: contain; 
+        object-position: center; 
+    }
 }
 
 /* Hero Section */
