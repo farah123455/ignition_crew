@@ -295,9 +295,24 @@ body {
 
 @media (max-width: 768px) {
 
+     .hero {
+        height: 50vh !important; 
+        min-height: auto !important;
+    }
      /* 1. Set the main container height */
     .hero-slider, .carousel-container {
         height: 50vh; /* Keeps it to half the screen height on mobile */
+    }
+
+    .hero-content {
+        position: absolute;
+        bottom: 20px; /* Positions button neatly near the bottom of the image */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
     }
 
     /* 2. Choose ONE image fitting style below */
