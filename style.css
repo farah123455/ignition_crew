@@ -323,7 +323,7 @@ body {
         background-color: #000; /* Fills empty space with black */
         
         /* OPTION A: Best for seeing the whole team/car without cropping */
-        object-fit: contain; 
+        object-fit: cover; 
         object-position: center; 
     }
 }
