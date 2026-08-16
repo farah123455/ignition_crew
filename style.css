@@ -5,16 +5,39 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: black;
-    color: white;
-    scroll-behavior: smooth;
-    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+    background: #000;
+    color: #fff;
+    line-height: 1.7;
 }
-/*
-.hidden {
-  display: none;
-}*/
+
+.section h2 {
+    font-size: clamp(2.2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    color: #fff;
+}
+
+.section h2 .highlight {
+    color: #CC5500;
+}
+
+.section h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #CC5500;
+    margin-bottom: 1rem;
+}
+
+.section p {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: #ccc;
+    margin-bottom: 1rem;
+}
+
 
 .hidden {
   opacity: 0;
